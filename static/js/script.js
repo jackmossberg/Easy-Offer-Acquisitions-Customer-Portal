@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.35 
+            threshold: 0.15 // Lowered to trigger earlier and more reliably
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -91,12 +91,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function resetTimer() {
         clearInterval(carouselInterval);
-        //carouselInterval = setInterval(nextReview, 5000);
+        // carouselInterval = setInterval(nextReview, 5000);
     }
 
     // Start the auto-flip
     resetTimer();
-
 
     // --- Mobile Menu Toggle Logic ---
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
