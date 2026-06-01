@@ -16,7 +16,6 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-snap-type: y proximity; 
 }
 
 body {
@@ -72,7 +71,6 @@ body::before {
 }
 
 /* --- Header / Navigation --- */
-
 header {
     display: flex;
     justify-content: space-between;
@@ -193,8 +191,7 @@ nav a:hover {
     transform: scale(1.3);
 }
 
-/* --- Hero Section (Scroll Jacking Layout) --- */
-
+/* --- Hero Section (Standard Scrolling Split Layout) --- */
 .hero {
     display: flex;
     align-items: flex-start; 
@@ -204,7 +201,7 @@ nav a:hover {
     gap: 8rem; 
 }
 
-/* Left Column: Holds the scrolling slides */
+/* Left Column: Holds the sequential content slides */
 .left-scroll-window {
     flex: 1;
     width: 100%;
@@ -216,9 +213,6 @@ nav a:hover {
     flex-direction: column;
     justify-content: center; 
     padding: 4rem 0;
-    
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
 
     opacity: 0;
     transform: translateY(40px);
@@ -349,7 +343,89 @@ h1 {
     line-height: 1.6;
 }
 
-/* --- Slide 3: Testimonials Carousel --- */
+/* --- Slide 3: Our 3-Step Process --- */
+.process-content {
+    max-width: 600px;
+}
+
+.process-content h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 3rem;
+    color: var(--text-dark);
+}
+
+.process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.step-item {
+    display: flex;
+    gap: 1.75rem;
+    align-items: flex-start;
+}
+
+.step-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #4dd998; 
+    letter-spacing: -0.5px;
+    flex-shrink: 0;
+    min-width: 55px;
+}
+
+.step-text h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 0.4rem;
+    color: var(--text-dark);
+}
+
+.step-text p {
+    color: var(--text-gray);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.process-success-card {
+    background-color: var(--primary-green);
+    color: #ffffff;
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 450px;
+    margin-top: 3.5rem;
+    box-shadow: 0 12px 30px rgba(15, 164, 115, 0.22);
+}
+
+.success-percentage {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.success-text strong {
+    display: block;
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin-bottom: 2px;
+}
+
+.success-text p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* --- Slide 4: Testimonials Carousel --- */
 .testimonials-content {
     max-width: 600px;
 }
@@ -482,7 +558,7 @@ h1 {
     font-size: 0.85rem;
 }
 
-/* --- Slide 4: Contact & Footer (Redesigned) --- */
+/* --- Slide 5: Contact & Footer --- */
 .footer-slide-content {
     max-width: 650px; 
     width: 100%;
@@ -490,8 +566,6 @@ h1 {
     flex-direction: column;
     border-radius: 16px;
     overflow: hidden;
-    
-    /* Transparent aesthetic with solid green outline */
     background: rgba(255, 255, 255, 0.5);
     border: 2px solid var(--primary-green);
     backdrop-filter: blur(12px);
@@ -798,12 +872,7 @@ h1 {
 }
 
 /* --- Responsive Breakpoints --- */
-
 @media (max-width: 992px) {
-    html {
-        scroll-snap-type: none;
-    }
-    
     header { display: none; }
     .left-scroll-window { display: none; }
     .scroll-dots { display: none; }
